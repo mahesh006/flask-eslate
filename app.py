@@ -5,11 +5,15 @@ from msrest.authentication import CognitiveServicesCredentials
 import os
 
 app = Flask(__name__)
+UPLOAD_FOLDER = './uploadedimages'
+
+# Ensure the upload folder exists
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Replace 'Your_Azure_Endpoint' with your Azure endpoint and 'Your_Subscription_Key' with your Azure subscription key
 computervision_client = ComputerVisionClient(
-    'Your_Azure_Endpoint',
-    CognitiveServicesCredentials('Your_Subscription_Key')
+    'centralindia',
+    CognitiveServicesCredentials('ef26f278c5bd47098ef2c71ea20b6db5')
 )
 
 @app.route('/upload', methods=['POST'])
